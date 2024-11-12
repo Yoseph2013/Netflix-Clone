@@ -1,0 +1,4 @@
+great vs is an extention  used to install icons
+ENV_VARS means environmental variable
+
+CTL + E used to search any file

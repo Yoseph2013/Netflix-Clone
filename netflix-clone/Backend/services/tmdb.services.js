@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ENV_VARS } from "../config/envVars";
+import { ENV_VARS } from "../config/envVars.js";
 
 
 
@@ -11,12 +11,18 @@ export const fetchFromTMDB = async (url) =>{
         }
       };
       const response = await axios.get(url, options)
+
       if(response.status !== 200) {
-        throw new error("Faild to fetch data from TMDB" + response.statusText);
+        throw new Error("Failed to fetch data from TMDB" + response.statusText);
         
       }
       return response.data;
       
 
 }
+
+
+ 
+  
+
 
