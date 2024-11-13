@@ -4,7 +4,7 @@ import { fetchFromTMDB } from "../services/tmdb.services.js";
 export async function getTrendingMovie(req, res) {
     try {
         // Corrected `fetchFromTMDB` usage, assuming it returns a promise
-        const data = await fetchFromTMDB("https://api.themoviedb.org/3/trending/tv/day?language=en-US");
+        const data = await fetchFromTMDB("https://api.themoviedb.org/3/trending/movie/day?language=en-US");
 
         // Ensure data has results and calculate a random movie
         const randomMovie = data.results[Math.floor(Math.random() * data.results?.length)];
@@ -23,7 +23,7 @@ export async function getMovieTrailers(req, res) {
     
     try {
          // Corrected `fetchFromTMDB` usage, assuming it returns a promise
-        const data = await fetchFromTMDB(`https://api.themoviedb.org/3/tv/${id}/videos?language=en-US`);
+        const data = await fetchFromTMDB(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`);
             // Send the random movie as a response
         res.json({ success: true, trailers: data.results });
 
@@ -44,7 +44,7 @@ export async function getMovieDetails(req, res) {
       
     try {
          // Corrected `fetchFromTMDB` usage, assuming it returns a promise
-        const data = await fetchFromTMDB(`https://api.themoviedb.org/3/tv/${id}?language=en-US`);
+        const data = await fetchFromTMDB(`https://api.themoviedb.org/3/movie/${id}?language=en-US`);
          res.status(200).json({success: true, content: data})
 
         } catch (error) {
@@ -64,7 +64,7 @@ export async function getSimilarMovies(req, res) {
       
     try {
          // Corrected `fetchFromTMDB` usage, assuming it returns a promise
-         const data = await fetchFromTMDB(`https://api.themoviedb.org/3/tv/${id}/similar?language=en-US&page=1`);
+         const data = await fetchFromTMDB(`https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=1`);
          res.status(200).json({success: true, simlar: data.results})
 
         } catch (error) {

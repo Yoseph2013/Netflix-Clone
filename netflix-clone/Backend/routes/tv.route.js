@@ -7,7 +7,6 @@ import { getSimilarTvs,
     } from "../controller/tv.controller.js";
 
 
-
 const router = express.Router();
 
 router.get('/trending', getTrendingTv);
