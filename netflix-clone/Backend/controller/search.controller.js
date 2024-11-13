@@ -11,7 +11,7 @@ export async function searchPerson(req, res) {
         if(response.results.length === 0 ) {
             return res.status(404).send(null)
         } 
-
+        
         await User.findByIdAndUpdate(req.user._id,{
             $push:{
                 searchHistrory: {
@@ -48,7 +48,7 @@ export async function searchMovie(req, res) {
                     id: response.results[0].id,
                     image:response.results[0].poster_path,
                     title:response.results[0].title,
-                    searchType: "Tv Show",
+                    searchType: "movie",
                     createAt: new Date(),
                 },
             },
@@ -64,7 +64,7 @@ export async function searchMovie(req, res) {
     
 };
 
-export async function searchTv(req, res) {
+export async function searchTv(req, res) {classnpm
     const {query} = req.params
     try{
         const response = await fetchFromTMDB(

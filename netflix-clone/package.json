@@ -1,11 +1,11 @@
 {
   "name": "netflix-clone",
   "version": "1.0.0",
-  "main": "backend/server.js",
+  "main": "Backend/server.js",
+ 
   "scripts": {
-    "start": "nodemon server.js"
+   "start": "nodemon backend/server.js"
   },
-  "keywords": [],
   "author": "",
   "type": "module",
   "license": "ISC",
