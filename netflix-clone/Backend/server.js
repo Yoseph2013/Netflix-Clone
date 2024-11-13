@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import authRoutes from './routes/auth.route.js';
 import movieRoutes from './routes/movie.route.js';
 import tvRoutes from './routes/tv.route.js';
+import searchRoutes from './routes/search.route.js';
 
 // Config Import
 import { ENV_VARS } from './config/envVars.js';
@@ -30,6 +31,7 @@ console.log('MONGO_URI:', ENV_VARS.MONGO_URI);
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/movie', protectRoute, movieRoutes);
 app.use('/api/v1/tv', protectRoute, tvRoutes);
+app.use('/api/v1/search', protectRoute, searchRoutes);
 
 // Start the server and connect to the database
 app.listen(PORT, () => {
