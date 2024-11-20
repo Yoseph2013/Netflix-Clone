@@ -7,7 +7,7 @@ export async function getTrendingMovie(req, res) {
         const data = await fetchFromTMDB("https://api.themoviedb.org/3/trending/movie/day?language=en-US");
 
         // Ensure data has results and calculate a random movie
-        const randomMovie = data.results[Math.floor(Math.random() * data.results?.length)];
+        const randomMovie = data.results[Math.floor(Math.random() *data.results?.length)];
 
         // Send the random movie as a response
         res.json({ success: true, content: randomMovie });
@@ -40,7 +40,7 @@ export async function getMovieTrailers(req, res) {
 }
 
 export async function getMovieDetails(req, res) {
-    const {id} = req.params
+    const {id} = req.params;
       
     try {
          // Corrected `fetchFromTMDB` usage, assuming it returns a promise

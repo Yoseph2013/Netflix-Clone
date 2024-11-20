@@ -3,4 +3,26 @@ ENV_VARS means environmental variable
 
 CTL + E used to search any file
 
-PS C:\Users\Yoseph\Desktop\Clone-Projects\Netflix-Clone\netflix-clone> npm install  express jsonwebtoken mongoose cookie-parser dotenv axios bcryptjs
+ npm install  used to build backend
+       express
+       jsonwebtoken 
+       mongoose 
+       cookie-parser 
+       dotenv
+       axios
+       bcryptjs
+       nodemon
+  npm create vite@latest used to create package in frontend   
+   PS C:\Users\Yoseph\Desktop\Clone-Projects\Netflix-Clone\netflix-clone\Frontend>
+                     npm create vite@latest 
+                      react
+                      javascript 
+                      and npm inistall  
+                      npm i lucide-react  used to create attractive icons 
+                      https://www.npmjs.com/package/react-player
+                       npm i axios react-player react-hot-toast react-router-dom zustand
+                       initalized tailwindcss (https://tailwindcss.com/docs/installation)
+                       https://react-hot-toast.com
+                       https://lucide.dev
+
+                       tailwindcss class with vite
