@@ -11,6 +11,7 @@ const HomeScreen = () => {
   const { trendingContent } = useGetTrendingContent();
   const { contentType } = useContentStore();
   const [imgLoading, setImgLoading] = useState(true);
+console.log(contentType)
  
 
   if ( !trendingContent)
@@ -18,8 +19,8 @@ const HomeScreen = () => {
       <div className="h-screen text-white relative">
         <Navbar />
         <div
-          className="absolute top-0 left-0 w-full h-full bg-black/70 flex items-center justify-center -z-10 shimmer"
-        />
+          className="absolute top-0 left-0 w-full h-full bg-black/70 flex items-center justify-center -z-10 
+		  shimmer"/>
       </div>
     );
 
@@ -29,7 +30,8 @@ const HomeScreen = () => {
         <Navbar />
    
 			{imgLoading && (
-					<div className='absolute top-0 left-0 w-full h-full bg-black/70 flex items-center justify-center shimmer -z-10' />
+					<div className='absolute top-0 left-0 w-full h-full bg-black/70 flex items-center justify-center shimmer
+					 -z-10' />
 				)}
 
         <img

@@ -59,7 +59,7 @@ const Navbar = () => {
                onClick={toggleMobileMenu}>
                  Tv Shows
              </Link>
-             <Link to = {"/search"} className="block hover:underline p-2 "
+             <Link to = {"/history"} className="block hover:underline p-2 "
                onClick={toggleMobileMenu}>
                  Search History
              </Link>

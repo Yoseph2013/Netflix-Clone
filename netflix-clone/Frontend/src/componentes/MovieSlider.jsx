@@ -9,7 +9,6 @@ const MovieSlider = ({ category }) => {
 	const { contentType } = useContentStore();
 	const [content, setContent] = useState([]);
 	const [showArrows, setShowArrows] = useState(false);
-  console.log(content)
 
 	const sliderRef = useRef(null);
 
@@ -21,7 +20,7 @@ const MovieSlider = ({ category }) => {
 		const getContent = async () => {
 			const res = await axios.get(`/api/v1/${contentType}/${category}`);
 			setContent(res.data.content);
-		};
+		}
 
 		getContent();
 	}, [contentType, category]);
