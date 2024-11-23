@@ -6,6 +6,7 @@ import Navbar from "../componentes/Navbar.jsx";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ReactPlayer from "react-player";
 import {ORGINAL_IMG_BASE_URL,SMALL_IMG_BASE_URL} from "../utils/constants.js"
+import { WachPageSkeleton } from "../componentes/skeletons/WachPageSkeleton.jsx";
 
 function WatchPage() {
   const { id } = useParams();
@@ -42,20 +43,21 @@ function WatchPage() {
     getTrailers();
   }, [contentType, id]);
 
-  useEffect(() => {
-    const getSimilarContent = async () => {
-      try {
-        const res = await axios.get(`/api/v1/${contentType}/${id}/similar`);
-        setSimilarContent(res.data.similar);
-      } catch (error) {
-        if (error.message.includes("404")) {
-          console.log("No similar content found");
-          setSimilarContent([]);
-        }
-      }
-    };
-    getSimilarContent();
-  }, [contentType, id]);
+	useEffect(() => {
+		const getSimilarContent = async () => {
+			try {
+				const res = await axios.get(`/api/v1/${contentType}/${id}/similar`);
+				setSimilarContent(res.data.similar);
+        console.log(similarContent); // Logs the similar content state
+			} catch (error) {
+				if (error.message.includes("404")) {
+          		setSimilarContent([]);
+				}
+			}     
+		};
+		getSimilarContent();
+	}, [contentType, id]);
+
 
   useEffect(() => {
     const getContentDetails = async () => {
@@ -73,6 +75,7 @@ function WatchPage() {
     };
     getContentDetails();
   }, [contentType, id]);
+ 
 
   const handleNext = () => {
     if (currentTrailerIdx < trailers.length - 1) setCurrentTrailerIdx(currentTrailerIdx + 1);
@@ -88,7 +91,28 @@ function WatchPage() {
   const scrollRight = () => {
     if(sliderRef.current) sliderRef.current.scrollBy({ left: -sliderRef.current.offsetwidth, behavior: "smooth"});
   };
+if(loading) return (
+  <div className="min-h-screen bg-black p-10">
+    <WachPageSkeleton/>
+  </div>
+);
+if (!content) {
+  return (
+    <div className="bg-black text-white h-screen">
+      <div className="max-w-6xl mx-auto">
+        <Navbar/>
+        <div className="text-center ma-auto px-4 py-8 h-full mt-40">
+          <h2 className="text-2xl sm:text-5xl font-bold text-balance">content not found
 
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+  )
+}
 
   return (
     <div className="bg-black min-h-screen text-white">
